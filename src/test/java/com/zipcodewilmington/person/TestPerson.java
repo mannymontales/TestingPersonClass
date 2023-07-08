@@ -50,7 +50,6 @@ public class TestPerson {
         Assert.assertEquals(expected, actual);
     }
 
-
     @Test
     public void testConstructorWithNameAndAge() {
         // Given
@@ -94,5 +93,64 @@ public class TestPerson {
         // Then
         Integer actual = person.getAge();
         Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testConstructorWithPet(){
+        // Given
+        Boolean expected = false;
+
+        // When
+        Person person = new Person(expected);
+
+        // Then
+        Boolean actual = person.getHasPet();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testSetPet() {
+        // Given
+        Person person = new Person();
+        Boolean expected = false;
+
+        // When
+        person.setHasPet(expected);
+
+        // Then
+        Boolean actual = person.getHasPet();
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testConstructorWithAllFields(){
+        // Given
+        Integer expectedAge = 5;
+        String expectedName = "Leon";
+        Boolean expectedPet = true;
+        Character expectedMiddle = 'R';
+        Double expectedWeight = 200.32;
+        String expectedAddress = "ZipCode";
+        Boolean expectedCartoon = true;
+
+        // When
+        Person person = new Person(expectedName, expectedAge, expectedPet,
+                expectedMiddle, expectedWeight, expectedAddress, expectedCartoon);
+
+        // Then
+        Integer actualAge = person.getAge();
+        String actualName = person.getName();
+        Boolean actualPet = person.getHasPet();
+        Character actualMiddle = person.getMiddleInitial();
+        Double actualWeight = person.getWeight();
+        String actualAddress = person.getAddress();
+        Boolean actualCartoon = person.getCartoon();
+
+        Assert.assertEquals(expectedAge, actualAge);
+        Assert.assertEquals(expectedName, actualName);
+        Assert.assertEquals(expectedPet, actualPet);
+        Assert.assertEquals(expectedMiddle, actualMiddle);
+        Assert.assertEquals(expectedAddress, actualAddress);
+        Assert.assertEquals(expectedCartoon, actualCartoon);
     }
 }
